@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-KITS Academy - Tingkatkan Keahlian Profesional Anda</title>
+    <link rel="stylesheet" href="assets/style.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header id="main-header">
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="images/logo.png" alt="Logo E-KITS Academy" />
+          <h1></h1>
+        </a>
+        <nav id="main-nav">
+          <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <li><a href="#kursus">Kursus</a></li>
+            <li><a href="#testimoni">Testimoni</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </nav>
+        <a href="latihan/index.html" class="btn btn-primary btn-header-cta"
+          >Mulai Belajar</a
+        >
+        <button id="menu-toggle" class="menu-toggle-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="beranda" class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <h2>Investasi Terbaik untuk Karir Anda Dimulai Hari Ini</h2>
+            <p>
+              Akses kursus online dari para ahli industri untuk meningkatkan
+              keahlian dan mencapai tujuan profesional Anda.
+            </p>
+            <form class="hero-search-form">
+              <input type="text" placeholder="Cari kursus impian Anda..." />
+              <button type="submit" class="btn btn-primary">Cari</button>
+            </form>
+            <div class="hero-benefits">
+              <span><i class="fas fa-check-circle"></i> Sertifikat Resmi</span>
+              <span
+                ><i class="fas fa-chalkboard-teacher"></i> Instruktur Ahli</span
+              >
+              <span><i class="fas fa-infinity"></i> Akses Seumur Hidup</span>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="images/landingpage.png"
+              alt="Orang dewasa belajar online"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="tentang" class="about-section">
+        <div class="container">
+          <div class="about-content">
+            <span class="section-subtitle">Tentang Kami</span>
+            <h2>Mengapa Memilih E-KITS?</h2>
+            <p>
+              Kami berkomitmen untuk menyediakan platform pembelajaran
+              berkualitas tinggi yang fleksibel dan relevan dengan kebutuhan
+              industri saat ini. Kurikulum kami dirancang oleh para profesional
+              berpengalaman untuk memastikan Anda mendapatkan pengetahuan dan
+              keterampilan praktis.
+            </p>
+            <ul>
+              <li>
+                <i class="fas fa-graduation-cap"></i> Kurikulum Terstruktur dan
+                Up-to-date
+              </li>
+              <li>
+                <i class="fas fa-users"></i> Komunitas Belajar yang Mendukung
+              </li>
+              <li>
+                <i class="fas fa-briefcase"></i> Relevan dengan Kebutuhan Karir
+              </li>
+              <li>
+                <i class="fas fa-laptop-code"></i> Platform Pembelajaran Modern
+              </li>
+            </ul>
+            <a href="#kursus" class="btn btn-secondary">Lihat Semua Kursus</a>
+          </div>
+          <div class="about-image">
+            <img
+              src="images/timprofesional.png"
+              alt="Diskusi tim profesional"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="kursus" class="courses-section">
+        <div class="container">
+          <span class="section-subtitle">Pilihan Kursus</span>
+          <h2>Kembangkan Keahlian Anda di Berbagai Bidang</h2>
+          <div class="course-categories">
+            <button class="category-btn active" data-filter="all">Semua</button>
+            <button class="category-btn" data-filter="bisnis">
+              Bisnis & Manajemen
+            </button>
+            <button class="category-btn" data-filter="teknologi">
+              Teknologi & IT
+            </button>
+            <button class="category-btn" data-filter="kreatif">
+              Desain & Kreatif
+            </button>
+            <button class="category-btn" data-filter="pengembangan-diri">
+              Pengembangan Diri
+            </button>
+          </div>
+          <div class="course-grid">
+            <div class="course-card" data-category="bisnis">
+              <img src="images/digital.png" alt="Kursus Digital Marketing" />
+              <div class="course-content">
+                <span class="course-category-tag">Bisnis</span>
+                <h3>Strategi Digital Marketing Komprehensif</h3>
+                <p>
+                  Pelajari SEO, SEM, media sosial, dan content marketing untuk
+                  meningkatkan jangkauan bisnis Anda.
+                </p>
+                <div class="course-meta">
+                  <span
+                    ><i class="fas fa-user-friends"></i> 1.200+ Peserta</span
+                  >
+                  <span><i class="fas fa-star"></i> 4.8 (250 Ulasan)</span>
+                </div>
+                <a href="#" class="btn-course-details">Lihat Detail</a>
+              </div>
+            </div>
+            <div class="course-card" data-category="teknologi">
+              <img src="images/web.png" alt="Kursus Web Development" />
+              <div class="course-content">
+                <span class="course-category-tag">Teknologi</span>
+                <h3>Full-Stack Web Development Bootcamp</h3>
+                <p>
+                  Kuasai HTML, CSS, JavaScript, Node.js, dan React untuk
+                  membangun aplikasi web modern.
+                </p>
+                <div class="course-meta">
+                  <span><i class="fas fa-user-friends"></i> 950+ Peserta</span>
+                  <span><i class="fas fa-star"></i> 4.9 (310 Ulasan)</span>
+                </div>
+                <a href="#" class="btn-course-details">Lihat Detail</a>
+              </div>
+            </div>
+            <div class="course-card" data-category="kreatif">
+              <img src="images/design.png" alt="Kursus Desain Grafis" />
+              <div class="course-content">
+                <span class="course-category-tag">Desain & Kreatif</span>
+                <h3>Masterclass Desain Grafis Profesional</h3>
+                <p>
+                  Dari dasar hingga mahir menggunakan Adobe Photoshop,
+                  Illustrator, dan InDesign.
+                </p>
+                <div class="course-meta">
+                  <span><i class="fas fa-user-friends"></i> 780+ Peserta</span>
+                  <span><i class="fas fa-star"></i> 4.7 (180 Ulasan)</span>
+                </div>
+                <a href="#" class="btn-course-details">Lihat Detail</a>
+              </div>
+            </div>
+            <div class="course-card" data-category="pengembangan-diri">
+              <img src="images/speaking.jpg" alt="Kursus Public Speaking" />
+              <div class="course-content">
+                <span class="course-category-tag">Pengembangan Diri</span>
+                <h3>Public Speaking & Presentasi Efektif</h3>
+                <p>
+                  Tingkatkan kepercayaan diri dan kemampuan berbicara di depan
+                  umum secara profesional.
+                </p>
+                <div class="course-meta">
+                  <span><i class="fas fa-user-friends"></i> 600+ Peserta</span>
+                  <span><i class="fas fa-star"></i> 4.8 (150 Ulasan)</span>
+                </div>
+                <a href="#" class="btn-course-details">Lihat Detail</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-it-works-section">
+        <div class="container">
+          <span class="section-subtitle">Cara Kerja</span>
+          <h2>Mulai Belajar Hanya dalam 3 Langkah Mudah</h2>
+          <div class="steps-container">
+            <div class="step-item">
+              <div class="step-icon"><i class="fas fa-mouse-pointer"></i></div>
+              <h3>1. Pilih Kursus</h3>
+              <p>
+                Jelajahi katalog kami dan temukan kursus yang paling sesuai
+                dengan minat dan tujuan karir Anda.
+              </p>
+            </div>
+            <div class="step-item">
+              <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+              <h3>2. Daftar & Bayar</h3>
+              <p>
+                Proses pendaftaran dan pembayaran yang mudah dan aman untuk
+                memulai perjalanan belajar Anda.
+              </p>
+            </div>
+            <div class="step-item">
+              <div class="step-icon"><i class="fas fa-play-circle"></i></div>
+              <h3>3. Mulai Belajar</h3>
+              <p>
+                Akses materi kursus kapan saja, di mana saja, dan belajar sesuai
+                dengan kecepatan Anda sendiri.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimoni" class="testimonials-section">
+        <div class="container">
+          <span class="section-subtitle">Testimoni</span>
+          <h2>Apa Kata Alumni Kami?</h2>
+          <div class="testimonial-slider">
+            <div class="testimonial-item active">
+              <img
+                src="images/sample_alumnie.jpg"
+                alt="Foto Alumni 1"
+                class="testimonial-avatar"
+              />
+              <p>
+                "Kursus di E-KITS Academy benar-benar mengubah karir saya.
+                Materinya sangat relevan dan instrukturnya luar biasa!"
+              </p>
+              <h4>- Budi Santoso, Web Developer</h4>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <img
+                src="images/alumni-2.jpg"
+                alt="Foto Alumni 2"
+                class="testimonial-avatar"
+              />
+              <p>
+                "Saya sangat merekomendasikan E-KITS Academy. Fleksibilitas
+                waktunya sangat membantu saya yang bekerja penuh waktu."
+              </p>
+              <h4>- Rini Anggraini, Digital Marketer</h4>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+            </div>
+            <div class="testimonial-item">
+              <img
+                src="images/alumni-3.jpg"
+                alt="Foto Alumni 3"
+                class="testimonial-avatar"
+              />
+              <p>
+                "Platformnya mudah digunakan dan komunitasnya sangat suportif.
+                Saya mendapatkan banyak insight baru."
+              </p>
+              <h4>- Ahmad Zulkarnain, UI/UX Designer</h4>
+              <div class="testimonial-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="slider-btn prev-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="daftar" class="cta-section">
+        <div class="container">
+          <h2>Siap Meningkatkan Keahlian Anda ke Level Berikutnya?</h2>
+          <p>
+            Jangan lewatkan kesempatan untuk berinvestasi dalam diri Anda.
+            Daftar sekarang dan dapatkan akses ke kursus-kursus terbaik kami.
+          </p>
+          <a href="#" class="btn btn-primary btn-large"
+            >Daftar Sekarang Gratis</a
+          >
+          <a href="#kursus" class="btn btn-outline">Jelajahi Kursus</a>
+        </div>
+      </section>
+
+      <section id="kontak" class="contact-section">
+        <div class="container">
+          <span class="section-subtitle">Hubungi Kami</span>
+          <h2>Punya Pertanyaan Lebih Lanjut?</h2>
+          <p>
+            Tim kami siap membantu Anda. Isi formulir di bawah ini atau hubungi
+            kami melalui informasi kontak yang tersedia.
+          </p>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <input
+                type="text"
+                id="nama"
+                name="nama"
+                placeholder="Nama Lengkap Anda"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Alamat Email Anda"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="subjek"
+                name="subjek"
+                placeholder="Subjek Pesan"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                id="pesan"
+                name="pesan"
+                placeholder="Tuliskan pesan Anda di sini..."
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+          </form>
+          <div class="contact-info">
+            <p>
+              <i class="fas fa-phone"></i>
+              <a href="tel:+62211234567">085180904344</a>
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@E-KITSacademy.com">info@E-KITSacademy.com</a>
+            </p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Jl. Jend. Sudirman Kav. 1,
+              Jakarta Pusat, Indonesia
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-about">
+            <img
+              src="images/logo-E-KITS-white.png"
+              alt="Logo E-KITS Academy Putih"
+              class="footer-logo"
+            />
+            <p>
+              E-KITS Academy adalah platform e-learning terdepan yang membantu
+              para profesional meningkatkan keahlian dan mencapai potensi penuh
+              mereka.
+            </p>
+            <div class="social-media">
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4>Jelajahi</h4>
+            <ul>
+              <li><a href="#kursus">Kategori Kursus</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Menjadi Instruktur</a></li>
+              <li><a href="#">Karir</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Dukungan</h4>
+            <ul>
+              <li><a href="#kontak">Hubungi Kami</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Syarat & Ketentuan</a></li>
+              <li><a href="#">Kebijakan Privasi</a></li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h4>Langganan Newsletter</h4>
+            <p>
+              Dapatkan update terbaru tentang kursus dan promosi spesial kami.
+            </p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Masukkan email Anda" />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; <span id="currentYear"></span> E-KITS Academy. Hak Cipta
+            Dilindungi Undang-Undang.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+  </body>
+</html>

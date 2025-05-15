@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Belajar Anak Interaktif</title>
+    <style>
+      /* Reset CSS Sederhana */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial,
+          sans-serif;
+        background-color: #87ceeb; /* Biru Langit Cerah */
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: #ffffff;
+        border-radius: 20px;
+        padding: 30px;
+        width: 90%;
+        max-width: 1000px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      header h1 {
+        font-size: 2.8em; /* Sedikit lebih kecil agar pas */
+        color: #ff6347; /* Merah Tomat */
+        text-shadow: 2px 2px #ffd700;
+      }
+
+      .guide-character {
+        width: 100px;
+        height: 120px;
+        background-color: #ffd700;
+        border: 3px solid #ffa500;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #a52a2a;
+        position: absolute;
+        top: -50px;
+        left: 20px;
+        /* Ganti dengan gambar: background-image: url('path/to/character.png'); */
+      }
+      .guide-character::before {
+        content: ":D";
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* Sedikit kurangi gap */
+        margin-bottom: 30px;
+        flex-wrap: wrap; /* Agar tombol bisa turun jika tidak muat */
+      }
+
+      .nav-button {
+        background-color: #32cd32;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        padding: 18px 25px; /* Sedikit lebih kecil */
+        font-size: 1.5em; /* Sedikit lebih kecil */
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-button:hover {
+        transform: scale(1.05);
+      }
+      .nav-button.active {
+        background-color: #228b22;
+        transform: scale(1.02);
+      }
+
+      .nav-button.kuning {
+        background-color: #ffd700;
+        color: #5d4037;
+      }
+      .nav-button.kuning:hover {
+        background-color: #ffc107;
+      }
+      .nav-button.kuning.active {
+        background-color: #ffc107;
+        transform: scale(1.02);
+      }
+
+      .nav-button.merah {
+        background-color: #ff6347;
+      }
+      .nav-button.merah:hover {
+        background-color: #e5533d;
+      }
+      .nav-button.merah.active {
+        background-color: #e5533d;
+        transform: scale(1.02);
+      }
+
+      .icon::before {
+        font-weight: bold;
+        margin-right: 8px;
+      }
+      .icon-bintang::before {
+        content: "★";
+      }
+      .icon-buku::before {
+        content: "📖";
+      }
+      .icon-game::before {
+        content: "🎮";
+      }
+
+      .main-content-area {
+        /* Wrapper untuk semua konten yang bisa di-switch */
+        min-height: 300px; /* Agar container tidak loncat-loncat saat konten berubah */
+      }
+
+      .content-section {
+        display: none; /* Sembunyikan semua section awal */
+        padding: 20px;
+        background-color: #f0fff0;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .content-section.active {
+        display: block;
+      } /* Tampilkan yang aktif */
+
+      .content-section h2 {
+        font-size: 2em;
+        color: #4682b4;
+        margin-bottom: 20px;
+      }
+
+      /* Materi Binatang */
+      .animal-display {
+        display: inline-block; /* Agar bisa berdampingan jika muat */
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 10px;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .animal-image {
+        /* Aturan umum untuk semua gambar binatang */
+        width: 150px;
+        height: 120px;
+        border: 3px solid #2e8b57;
+        border-radius: 10px;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .animal-image-placeholder {
+        width: 150px;
+        height: 120px;
+        background-color: #90ee90;
+        border: 3px dashed #2e8b57;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3em;
+        color: #2e8b57;
+        border-radius: 10px;
+      }
+      .animal-name {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #d2691e;
+        margin-top: 5px;
+      }
+      .animal-display button {
+        background-color: #ffa500;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9em;
+        margin-top: 10px;
+      }
+      .animal-display button:hover {
+        background-color: #e69500;
+      }
+
+      /* Kuis Interaktif */
+      .quiz-question {
+        margin-bottom: 20px;
+        background-color: #fffacd;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      .quiz-question p {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      .quiz-options label {
+        display: block;
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #add8e6;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      .quiz-options label:hover {
+        background-color: #9bc4d7;
+      }
+      .quiz-options input[type="radio"] {
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+      #submit-quiz {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2em;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+      #submit-quiz:hover {
+        background-color: #45a049;
+      }
+      #quiz-results {
+        margin-top: 20px;
+        font-size: 1.4em;
+        font-weight: bold;
+      }
+
+      /* Game Matematika */
+      .math-game {
+        background-color: #ffc0cb;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .math-problem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 2em;
+        margin-bottom: 15px;
+      }
+      .math-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: white;
+      }
+      .candy {
+        background-color: #ff69b4;
+      }
+      .fruit {
+        background-color: #adff2f;
+        color: #333;
+      }
+      #math-answer {
+        padding: 10px;
+        font-size: 1.5em;
+        width: 80px;
+        text-align: center;
+        border: 2px solid #ff69b4;
+        border-radius: 5px;
+      }
+      #submit-math {
+        background-color: #8a2be2;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      #math-feedback {
+        margin-top: 15px;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      /* Reward Section */
+      .reward-section {
+        margin-top: 30px;
+        background-color: #e6e6fa;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .reward-section h3 {
+        color: #8a2be2;
+        margin-bottom: 10px;
+        font-size: 1.5em;
+      }
+      .badge-placeholder {
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        background-color: #b0c4de; /* Abu-abu muda (terkunci) */
+        border: 3px solid #778899;
+        border-radius: 50%;
+        margin: 10px;
+        text-align: center;
+        line-height: 65px;
+        font-size: 2em;
+        color: #708090;
+        transition: all 0.3s ease;
+      }
+      .badge-placeholder.unlocked {
+        background-color: #ffd700; /* Kuning (terbuka) */
+        border: 3px solid #ffa500;
+        color: #a0522d;
+        transform: scale(1.1);
+      }
+
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 0.9em;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="guide-character" title="Hai! Aku Pemandu Belajarmu!"></div>
+      <header>
+        <h1>Ayo Belajar Sambil Bermain!</h1>
+      </header>
+
+      <nav>
+        <button class="nav-button kuning" data-content="materi">
+          <span class="icon icon-bintang"></span>Materi Seru
+        </button>
+        <button class="nav-button" data-content="kuis">
+          <span class="icon icon-buku"></span>Kuis Interaktif
+        </button>
+        <button class="nav-button merah" data-content="game">
+          <span class="icon icon-game"></span>Permainan Edukasi
+        </button>
+      </nav>
+
+      <div class="main-content-area">
+        <section id="materi" class="content-section">
+          <h2>Mengenal Binatang</h2>
+          <div class="animal-display">
+            <img
+              src="images/gajah.png"
+              alt="Gambar Gajah"
+              class="animal-image gajah-image"
+            />
+            <p class="animal-name">Gajah</p>
+            <button onclick="playSound('Gajah')">Dengarkan Suara</button>
+          </div>
+          <div class="animal-display">
+            <img
+              src="images/kucing.png"
+              alt="Gambar Gajah"
+              class="animal-image gajah-image"
+            />
+            <p class="animal-name">Kucing</p>
+            <button onclick="playSound('Kucing')">Dengarkan Suara</button>
+          </div>
+          <div class="animal-display">
+            <img
+              src="images/ayam.png"
+              alt="Gambar Ayam"
+              class="animal-image gajah-image"
+            />
+            <p class="animal-name">Ayam</p>
+            <button onclick="playSound('Ayam')">Dengarkan Suara</button>
+          </div>
+        </section>
+
+        <section id="kuis" class="content-section">
+          <h2>Kuis Cerdas Cermat!</h2>
+          <form id="quiz-form">
+            <div class="quiz-question">
+              <p>1. Binatang apa yang menghasilkan madu?</p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q1" value="a" /> a) Semut</label
+                >
+                <label
+                  ><input type="radio" name="q1" value="b" /> b) Lebah</label
+                >
+                <label
+                  ><input type="radio" name="q1" value="c" /> c)
+                  Kupu-kupu</label
+                >
+              </div>
+            </div>
+            <div class="quiz-question">
+              <p>2. Apa makanan utama Panda?</p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q2" value="a" /> a) Daging</label
+                >
+                <label
+                  ><input type="radio" name="q2" value="b" /> b) Ikan</label
+                >
+                <label
+                  ><input type="radio" name="q2" value="c" /> c) Bambu</label
+                >
+              </div>
+            </div>
+            <div class="quiz-question">
+              <p>3. Hewan manakah yang disebut raja hutan?</p>
+              <div class="quiz-options">
+                <label
+                  ><input type="radio" name="q3" value="a" /> a) Harimau</label
+                >
+                <label
+                  ><input type="radio" name="q3" value="b" /> b) Singa</label
+                >
+                <label
+                  ><input type="radio" name="q3" value="c" /> c) Beruang</label
+                >
+              </div>
+            </div>
+            <button type="button" id="submit-quiz">Kirim Jawaban</button>
+          </form>
+          <div id="quiz-results"></div>
+        </section>
+
+        <section id="game" class="content-section">
+          <h2>Hitung Cepat!</h2>
+          <div class="math-game">
+            <div class="math-problem">
+              <div class="math-item candy" id="num1">3</div>
+              <div style="font-size: 1.5em; color: #555">+</div>
+              <div class="math-item fruit" id="num2">4</div>
+              <div style="font-size: 1.5em; color: #555">=</div>
+              <input
+                type="number"
+                id="math-answer"
+                aria-label="Jawaban matematika"
+              />
+              <button id="submit-math">Cek!</button>
+            </div>
+            <div id="math-feedback"></div>
+          </div>
+          <p style="margin-top: 20px; font-size: 1.1em">
+            Mainkan game matematika lainnya akan segera hadir!
+          </p>
+        </section>
+      </div>
+
+      <div class="reward-section">
+        <h3>Lencana Prestasimu!</h3>
+        <div
+          class="badge-placeholder"
+          id="badge-quiz"
+          title="Selesaikan Kuis dengan Benar!"
+        >
+          🏅
+        </div>
+        <div class="badge-placeholder" id="badge-math" title="Jago Matematika!">
+          ➕
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; <span id="current-year"></span> Website E-KITS</p>
+    </footer>
+
+    <script>
+      // Set tahun berjalan di footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Navigasi Konten
+      const navButtons = document.querySelectorAll(".nav-button");
+      const contentSections = document.querySelectorAll(".content-section");
+      const mainContentArea = document.querySelector(".main-content-area");
+
+      // Tampilkan konten pertama (Materi) secara default
+      const defaultContent = document.getElementById("materi");
+      if (defaultContent) {
+        defaultContent.classList.add("active");
+        document
+          .querySelector('.nav-button[data-content="materi"]')
+          .classList.add("active");
+      }
+
+      navButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Hapus kelas active dari semua tombol dan section
+          navButtons.forEach((btn) => btn.classList.remove("active"));
+          contentSections.forEach((section) =>
+            section.classList.remove("active")
+          );
+
+          // Tambah kelas active ke tombol yang diklik dan section terkait
+          button.classList.add("active");
+          const contentId = button.dataset.content;
+          const activeSection = document.getElementById(contentId);
+          if (activeSection) {
+            activeSection.classList.add("active");
+          }
+        });
+      });
+
+      // Fungsi placeholder suara binatang
+      function playSound(animalName) {
+        alert(
+          `Suara ${animalName} akan dimainkan! (Anda perlu menambahkan file audio di sini)`
+        );
+        // Contoh implementasi jika ada file audio:
+        const audio = new Audio(`sounds/${animalName.toLowerCase()}.mp3`);
+        audio.play();
+      }
+
+      // Logika Kuis Interaktif
+      const quizForm = document.getElementById("quiz-form");
+      const submitQuizButton = document.getElementById("submit-quiz");
+      const quizResultsDiv = document.getElementById("quiz-results");
+      const quizBadge = document.getElementById("badge-quiz");
+
+      const quizAnswers = { q1: "b", q2: "c", q3: "b" }; // Jawaban benar
+
+      if (submitQuizButton) {
+        submitQuizButton.addEventListener("click", () => {
+          let score = 0;
+          const userAnswers = {
+            q1: quizForm.q1.value,
+            q2: quizForm.q2.value,
+            q3: quizForm.q3.value,
+          };
+
+          if (!userAnswers.q1 || !userAnswers.q2 || !userAnswers.q3) {
+            quizResultsDiv.textContent = "Harap jawab semua pertanyaan!";
+            quizResultsDiv.style.color = "red";
+            return;
+          }
+
+          if (userAnswers.q1 === quizAnswers.q1) score++;
+          if (userAnswers.q2 === quizAnswers.q2) score++;
+          if (userAnswers.q3 === quizAnswers.q3) score++;
+
+          const totalQuestions = Object.keys(quizAnswers).length;
+          quizResultsDiv.innerHTML = `Skor Kamu: ${score} dari ${totalQuestions}.<br>`;
+
+          if (score === totalQuestions) {
+            quizResultsDiv.innerHTML +=
+              "Selamat! Kamu menjawab semuanya dengan benar! 🎉";
+            quizResultsDiv.style.color = "green";
+            unlockBadge("quiz");
+          } else if (score > 0) {
+            quizResultsDiv.innerHTML += "Bagus! Terus belajar ya!";
+            quizResultsDiv.style.color = "orange";
+          } else {
+            quizResultsDiv.innerHTML += "Jangan menyerah, coba lagi!";
+            quizResultsDiv.style.color = "red";
+          }
+        });
+      }
+
+      // Logika Game Matematika
+      const num1Elem = document.getElementById("num1");
+      const num2Elem = document.getElementById("num2");
+      const mathAnswerInput = document.getElementById("math-answer");
+      const submitMathButton = document.getElementById("submit-math");
+      const mathFeedbackDiv = document.getElementById("math-feedback");
+      const mathBadge = document.getElementById("badge-math");
+      let num1, num2, correctAnswerMath;
+
+      function generateMathProblem() {
+        if (num1Elem && num2Elem) {
+          num1 = Math.floor(Math.random() * 10) + 1;
+          num2 = Math.floor(Math.random() * 10) + 1;
+          correctAnswerMath = num1 + num2;
+          num1Elem.textContent = num1;
+          num2Elem.textContent = num2;
+          if (mathAnswerInput) mathAnswerInput.value = "";
+          if (mathFeedbackDiv) mathFeedbackDiv.textContent = "";
+        }
+      }
+
+      if (submitMathButton) {
+        submitMathButton.addEventListener("click", () => {
+          if (!mathAnswerInput.value) {
+            mathFeedbackDiv.textContent = "Isi jawabanmu dulu ya!";
+            mathFeedbackDiv.style.color = "orange";
+            return;
+          }
+          const userAnswer = parseInt(mathAnswerInput.value);
+          if (userAnswer === correctAnswerMath) {
+            mathFeedbackDiv.textContent = "Benar! Kamu Hebat! 👍";
+            mathFeedbackDiv.style.color = "green";
+            unlockBadge("math"); // Contoh unlock badge matematika
+            setTimeout(generateMathProblem, 1500); // Buat soal baru setelah 1.5 detik
+          } else {
+            mathFeedbackDiv.textContent = "Ups, coba lagi ya!";
+            mathFeedbackDiv.style.color = "red";
+          }
+        });
+      }
+      // Generate soal matematika pertama kali
+      generateMathProblem();
+
+      // Sistem Badge dengan localStorage
+      function unlockBadge(badgeId) {
+        const badgeElement = document.getElementById(`badge-${badgeId}`);
+        if (badgeElement) {
+          badgeElement.classList.add("unlocked");
+          localStorage.setItem(`badge-${badgeId}-unlocked`, "true");
+        }
+      }
+
+      function loadBadges() {
+        if (localStorage.getItem("badge-quiz-unlocked") === "true") {
+          quizBadge?.classList.add("unlocked");
+        }
+        if (localStorage.getItem("badge-math-unlocked") === "true") {
+          mathBadge?.classList.add("unlocked");
+        }
+        // ... muat badge lain jika ada
+      }
+
+      // Panggil fungsi saat halaman dimuat
+      document.addEventListener("DOMContentLoaded", () => {
+        loadBadges();
+        // Tampilkan konten pertama (Materi) secara default jika belum ada yang aktif
+        // (Sudah ditangani di atas, tapi bisa juga ditaruh di sini)
+        if (
+          !document.querySelector(".content-section.active") &&
+          defaultContent
+        ) {
+          defaultContent.classList.add("active");
+          document
+            .querySelector('.nav-button[data-content="materi"]')
+            .classList.add("active");
+        } else if (!document.querySelector(".content-section.active")) {
+          // Jika defaultContent (materi) tidak ada, aktifkan yang pertama
+          const firstSection = document.querySelector(".content-section");
+          const firstNavButton = document.querySelector(".nav-button");
+          if (firstSection) firstSection.classList.add("active");
+          if (firstNavButton) firstNavButton.classList.add("active");
+        }
+      });
+    </script>
+  </body>
+</html>

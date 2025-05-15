@@ -1,0 +1,10 @@
+version: '3'
+
+services: 
+  nginx_imk_ad:
+    container_name: nginx_imk_ad
+    image: nginx:alpine
+    ports:
+      - 58:80
+    volumes:
+      - ./src:/usr/share/nginx/html

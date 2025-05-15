@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Learning Dewasa</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <a href="#beranda" class="nav-logo">E-KITS</a>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#beranda" class="nav-link">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a href="#progres-saya" class="nav-link">Progres Saya</a>
+            </li>
+            <li class="nav-item">
+              <a href="#sertifikat" class="nav-link">Sertifikat</a>
+            </li>
+            <li class="nav-item">
+              <a href="#forum" class="nav-link">Forum</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="beranda" class="page-section">
+        <div class="container">
+          <h2>Selamat Datang Kembali, Pengguna!</h2>
+
+          <div class="dashboard-grid">
+            <div class="dashboard-card">
+              <h3>Timeline Kursus</h3>
+              <ul class="timeline">
+                <li>
+                  <strong>Kursus Web Design Pemula</strong>
+                  <span>Mulai: 1 Juni 2025 - Selesai: 30 Juni 2025</span>
+                </li>
+                <li>
+                  <strong>Kursus Analisis Data Lanjutan</strong>
+                  <span>Mulai: 15 Juni 2025 - Selesai: 15 Juli 2025</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="dashboard-card">
+              <h3>Deadline Tugas</h3>
+              <ul class="deadline-list">
+                <li>
+                  Tugas Modul 3 Web Design -
+                  <strong>Deadline: 10 Juni 2025</strong>
+                </li>
+                <li>
+                  Proyek Akhir Web Design -
+                  <strong>Deadline: 28 Juni 2025</strong>
+                </li>
+                <li>
+                  Studi Kasus Analisis Data -
+                  <strong>Deadline: 5 Juli 2025</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Daftar Kursus Tersedia</h3>
+          <div class="course-list">
+            <div class="course-item">
+              <h4>Pengantar Pemrograman Python</h4>
+              <span class="difficulty pemula">Pemula</span>
+              <p>
+                Pelajari dasar-dasar pemrograman dengan Python, bahasa yang
+                populer dan serbaguna.
+              </p>
+              <a href="python_test.html" class="btn">Mulai Belajar</a>
+            </div>
+            <div class="course-item">
+              <h4>Manajemen Proyek Agile</h4>
+              <span class="difficulty lanjutan">Lanjutan</span>
+              <p>
+                Kuasai metodologi Agile untuk manajemen proyek yang efektif dan
+                efisien.
+              </p>
+              <button class="btn">Mulai Belajar</button>
+            </div>
+            <div class="course-item">
+              <h4>Desain Grafis untuk Media Sosial</h4>
+              <span class="difficulty pemula">Pemula</span>
+              <p>
+                Pelajari cara membuat konten visual menarik untuk platform media
+                sosial.
+              </p>
+              <button class="btn">Mulai Belajar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="progres-saya" class="page-section">
+        <div class="container">
+          <h2>Progres Belajar Saya</h2>
+          <div class="progress-overview">
+            <div class="progress-item">
+              <h3>Pengantar Pemrograman Python</h3>
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 75%">75%</div>
+              </div>
+              <p>Skor Tes Terakhir: 85/100</p>
+            </div>
+            <div class="progress-item">
+              <h3>Manajemen Proyek Agile</h3>
+              <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 40%">40%</div>
+              </div>
+              <p>Skor Tes Terakhir: Belum ada</p>
+            </div>
+          </div>
+
+          <h3>Visualisasi Data Progres</h3>
+          <div class="chart-container">
+            <p
+              style="text-align: center; padding: 20px; border: 1px dashed #ccc"
+            >
+              [Grafik/Diagram Progres Belajar Akan Tampil di Sini]
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sertifikat" class="page-section">
+        <div class="container">
+          <h2>Sertifikat Saya</h2>
+          <div class="certificate-list">
+            <div class="certificate-item">
+              <p>
+                <strong>Sertifikat Kelulusan: Dasar Pemrograman Web</strong>
+              </p>
+              <p>Diterbitkan: 15 Mei 2025</p>
+              <a href="#" class="btn btn-secondary">Unduh Sertifikat</a>
+            </div>
+          </div>
+          <p class="no-certificate" style="display: none">
+            Anda belum memiliki sertifikat.
+          </p>
+        </div>
+      </section>
+
+      <section id="forum" class="page-section">
+        <div class="container">
+          <h2>Forum Diskusi & Mentor</h2>
+          <p>
+            Ini adalah tempat untuk berdiskusi dengan sesama peserta dan mentor.
+          </p>
+          <div class="forum-placeholder">
+            <p
+              style="text-align: center; padding: 20px; border: 1px dashed #ccc"
+            >
+              [Fitur Forum Diskusi atau Chat dengan Mentor Akan Terintegrasi di
+              Sini]
+              <br /><br />
+              <a href="#" class="btn">Kunjungi Forum Eksternal (Contoh)</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contoh-konten" class="page-section">
+        <div class="container">
+          <h2>Contoh Tampilan Konten Kursus</h2>
+          <p>Berikut adalah contoh bagaimana materi kursus akan ditampilkan.</p>
+
+          <h3>Video Pembelajaran</h3>
+          <div class="video-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/71a2zeC71gk?si=UDEF0POGBcFzVYq3"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <h3>Slide Presentasi</h3>
+          <div class="slide-placeholder">
+            <img
+              src="https://via.placeholder.com/800x450.png?text=Contoh+Slide+Presentasi"
+              alt="Contoh Slide Presentasi"
+              style="max-width: 100%; height: auto"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2025 Platform E-Learning E-KITS. Hak Cipta Dilindungi.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

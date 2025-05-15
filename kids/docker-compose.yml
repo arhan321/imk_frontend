@@ -1,0 +1,10 @@
+version: '3'
+
+services: 
+  nginx_imk_kids:
+    container_name: nginx_imk_kids
+    image: nginx:alpine
+    ports:
+      - 59:80
+    volumes:
+      - ./src:/usr/share/nginx/html

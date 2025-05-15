@@ -1,0 +1,13 @@
+# INTERAKSI MANUSIA KOMPUTER CR002
+
+## MEMMBUAT FRONTEND E-LEARNING (E-KITS) UNTUK ADULT & KIDS
+
+### Anggota Kelompok
+```
+- Arhan Malik Alrasyid
+- Dava Wisda Putra
+- Noval Yusuf Alfian
+```
+
+# DOSEN PENGAMPU YANG TERHORMAT
+## DWI SARTIKA SIMATUPANG S.T., M.T.I.
